@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- REMIX -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <img src="Images/logo-white.webp" alt="">
+            </div>
+
+            <ul>
+                <li><i class="ri-moon-clear-line"></i></li>
+                <li><Button>Let's Talk</Button></li>
+                <li><i class="ri-menu-line"></i></li>
+            </ul>
+        </nav>
+
+        <main>
+            <img src="Images/image.webp" alt="">
+
+            <div class="content">
+                <h1>WORLD</h1>
+                <h1><span> Photogaphy <sup>OF</sup></span></h1>
+                <h1><sup>The</sup>Years </h1>
+            </div>
+        </main>
+
+        <div class="full_menu">
+            <div class="Menu_container">
+                <div class="menuNav">
+                    <img src="Images/logo-white.webp" alt="">
+                </div>
+
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="Menu_container">
+                <div class="Content">
+                   <p>+61404093 954</p>
+                    <p>hello contact@diego.com</p>
+                    <p>If in doubt. reach out.</p>
+                </div>
+
+                <ul>
+                    <li><a href="#">Dribbble</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Github</a></li>
+                </ul>
+
+            <i class="ri-close-line"></i>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let Left_Menu_lis = document.querySelectorAll('.full_menu .Menu_container:nth-child(2) ul li');
+        let Right_Menu_lis = document.querySelectorAll('.full_menu .Menu_container:nth-child(1) ul li');
+        let Left_container = document.querySelector('.full_menu .Menu_container:nth-child(1)');
+        let Right_container = document.querySelector('.full_menu .Menu_container:nth-child(2)');
+        let Right_container_Content = document.querySelector('.full_menu .Menu_container:nth-child(2) .Content');
+        let MenuWrapper = document.querySelector('.full_menu');
+        
+        let bars =  document.querySelector('.ri-menu-line');
+        let Closebtn = document.querySelector('.ri-close-line');
+        let moon = document.querySelector('.ri-moon-clear-line');
+        bars.addEventListener('click',function() {
+            MenuWrapper.classList.add('activeWrapper');
+            Left_container.classList.add('LeftMenuOpen')
+            Right_container.classList.add('RightMenuOpen')
+            Right_Menu_lis.forEach(li=>{
+                li.classList.add('RightContentOpen')
+            })
+            Left_Menu_lis.forEach(li=>{
+                li.classList.add('LeftContentOpen')
+            })
+            Right_container_Content.classList.add('menuDescOpen')
+        });
+        Closebtn.addEventListener('click',function() {
+            MenuWrapper.classList.remove('activeWrapper');
+            Left_container.classList.remove('LeftMenuOpen')
+            Right_container.classList.remove('RightMenuOpen')
+            Right_Menu_lis.forEach(li=>{
+                li.classList.remove('RightContentOpen')
+            })
+            Left_Menu_lis.forEach(li=>{
+                li.classList.remove('LeftContentOpen')
+            })
+            Right_container_Content.classList.add('menuDescOpen')
+        });
+        moon.addEventListener('click',function(){
+            document.body.classList.toggle('activeTheme');
+        })
+    </script>
+</body>
+</html>
